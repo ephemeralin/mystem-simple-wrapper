@@ -1,0 +1,13 @@
+language: java
+
+notifications:
+  email:
+    recipients:
+      - ephemeralin@gmail.com
+    on_success: always # default: change
+    on_failure: always # default: always
+
+before_install:
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
