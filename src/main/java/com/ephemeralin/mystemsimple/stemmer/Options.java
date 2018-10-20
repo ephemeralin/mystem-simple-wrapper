@@ -6,7 +6,7 @@ import lombok.Getter;
  * Stemmer options.
  */
 @Getter
-public class StemmerOptions {
+public class Options {
 //    -n
     private boolean rowMode;
     //-c
@@ -41,7 +41,7 @@ public class StemmerOptions {
     /**
      * Instantiates a new Stemmer options.
      */
-    public StemmerOptions() {
+    public Options() {
         this.rowMode = true;
     }
 
@@ -51,7 +51,7 @@ public class StemmerOptions {
      * @param copyInputToOutput the copy input to output
      * @return the copy input to output
      */
-    public StemmerOptions setCopyInputToOutput(boolean copyInputToOutput) {
+    public Options setCopyInputToOutput(boolean copyInputToOutput) {
         this.copyInputToOutput = copyInputToOutput;
         return this;
     }
@@ -62,7 +62,7 @@ public class StemmerOptions {
      * @param printOnlyDictionaryWords the print only dictionary words
      * @return the print only dictionary words
      */
-    public StemmerOptions setPrintOnlyDictionaryWords(boolean printOnlyDictionaryWords) {
+    public Options setPrintOnlyDictionaryWords(boolean printOnlyDictionaryWords) {
         this.printOnlyDictionaryWords = printOnlyDictionaryWords;
         return this;
     }
@@ -74,7 +74,7 @@ public class StemmerOptions {
      * @param printWithoutOriginalWordForms the print without original word forms
      * @return the print without original word forms
      */
-    public StemmerOptions setPrintWithoutOriginalWordForms(boolean printWithoutOriginalWordForms) {
+    public Options setPrintWithoutOriginalWordForms(boolean printWithoutOriginalWordForms) {
         this.printWithoutOriginalWordForms = printWithoutOriginalWordForms;
         return this;
     }
@@ -85,7 +85,7 @@ public class StemmerOptions {
      * @param printGramInfo the print gram info
      * @return the print gram info
      */
-    public StemmerOptions setPrintGramInfo(boolean printGramInfo) {
+    public Options setPrintGramInfo(boolean printGramInfo) {
         this.printGramInfo = printGramInfo;
         return this;
     }
@@ -96,7 +96,7 @@ public class StemmerOptions {
      * @param glueGramInfoIfOneLemm the glue gram info if one lemm
      * @return the glue gram info if one lemm
      */
-    public StemmerOptions setGlueGramInfoIfOneLemm(boolean glueGramInfoIfOneLemm) {
+    public Options setGlueGramInfoIfOneLemm(boolean glueGramInfoIfOneLemm) {
         this.glueGramInfoIfOneLemm = glueGramInfoIfOneLemm;
         return this;
     }
@@ -107,7 +107,7 @@ public class StemmerOptions {
      * @param printEndMarker the print end marker
      * @return the print end marker
      */
-    public StemmerOptions setPrintEndMarker(boolean printEndMarker) {
+    public Options setPrintEndMarker(boolean printEndMarker) {
         this.printEndMarker = printEndMarker;
         return this;
     }
@@ -118,7 +118,7 @@ public class StemmerOptions {
      * @param encoding the encoding
      * @return the encoding
      */
-    public StemmerOptions setEncoding(EncodingType encoding) {
+    public Options setEncoding(EncodingType encoding) {
         this.encoding = encoding;
         return this;
     }
@@ -129,7 +129,7 @@ public class StemmerOptions {
      * @param contextualDisambiguation the contextual disambiguation
      * @return the contextual disambiguation
      */
-    public StemmerOptions setContextualDisambiguation(boolean contextualDisambiguation) {
+    public Options setContextualDisambiguation(boolean contextualDisambiguation) {
         this.contextualDisambiguation = contextualDisambiguation;
         return this;
     }
@@ -140,7 +140,7 @@ public class StemmerOptions {
      * @param printEnglishGrammemes the print english grammemes
      * @return the print english grammemes
      */
-    public StemmerOptions setPrintEnglishGrammemes(boolean printEnglishGrammemes) {
+    public Options setPrintEnglishGrammemes(boolean printEnglishGrammemes) {
         this.printEnglishGrammemes = printEnglishGrammemes;
         return this;
     }
@@ -151,7 +151,7 @@ public class StemmerOptions {
      * @param filterGrammemes the filter grammemes
      * @return the filter grammemes
      */
-    public StemmerOptions setFilterGrammemes(boolean filterGrammemes) {
+    public Options setFilterGrammemes(boolean filterGrammemes) {
         this.filterGrammemes = filterGrammemes;
         return this;
     }
@@ -162,7 +162,7 @@ public class StemmerOptions {
      * @param customDictionaryPath the custom dictionary path
      * @return the custom dictionary path
      */
-    public StemmerOptions setCustomDictionaryPath(String customDictionaryPath) {
+    public Options setCustomDictionaryPath(String customDictionaryPath) {
         this.customDictionaryPath = customDictionaryPath;
         return this;
     }
@@ -173,7 +173,7 @@ public class StemmerOptions {
      * @param outputFormat the output format
      * @return the output format
      */
-    public StemmerOptions setOutputFormat(OutputFormatType outputFormat) {
+    public Options setOutputFormat(OutputFormatType outputFormat) {
         this.outputFormat = outputFormat;
         return this;
     }
@@ -184,7 +184,7 @@ public class StemmerOptions {
      * @param printAllSuggestions the print all suggestions
      * @return the print all suggestions
      */
-    public StemmerOptions setPrintAllSuggestions(boolean printAllSuggestions) {
+    public Options setPrintAllSuggestions(boolean printAllSuggestions) {
         this.printAllSuggestions = printAllSuggestions;
         return this;
     }
@@ -195,7 +195,7 @@ public class StemmerOptions {
      * @param printWeight the print weight
      * @return the print weight
      */
-    public StemmerOptions setPrintWeight(boolean printWeight) {
+    public Options setPrintWeight(boolean printWeight) {
         this.printWeight = printWeight;
         return this;
     }

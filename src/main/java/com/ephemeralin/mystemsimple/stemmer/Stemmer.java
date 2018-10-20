@@ -17,7 +17,7 @@ import lombok.extern.log4j.Log4j2;
 @Data
 @AllArgsConstructor
 public class Stemmer {
-    private StemmerOptions options;
+    private Options options;
 
     /**
      * Stem text and return raw strings.
@@ -25,13 +25,14 @@ public class Stemmer {
      * @param inputText the input text
      * @return the list of raw stemmed strings
      */
-    public List<String> rawStem(String inputText) {
-        List<String> analyze = null;
+    List<String> rawStem(String inputText) {
+        List<String> commands = new ArrayList<String>();
         try {
-            analyze = Wrapper.getInstance().analyze(options, inputText);
-        } catch (Wrapper.InvalidOptionsException e) {
+            commands = new WrapperInitializer().initCommands(options);
+        } catch (WrapperInitializer.InvalidOptionsException e) {
             log.error("Error while trying to analyze data", e);
         }
+        List<String> analyze = new Wrapper().analyze(commands, inputText);
         return analyze;
     }
 
@@ -47,7 +48,6 @@ public class Stemmer {
         for (String json : rawResults) {
             results.add(JsonParser.getInstance().parse(json));
         }
-
         return results;
     }
 }
