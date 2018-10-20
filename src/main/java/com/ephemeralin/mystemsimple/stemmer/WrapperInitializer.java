@@ -119,21 +119,21 @@ class WrapperInitializer {
             switch (encodingType) {
                 case CP866: commands.add("cp866"); break;
                 case UTF8: commands.add("utf-8"); break;
-                case KOI8R: commands.add("koi8-r,"); break;
+                case KOI8R: commands.add("koi8-r"); break;
                 case CP1251: commands.add("cp1251"); break;
                 default: commands.add("utf-8");
             }
         }
     }
 
-    private void setCustomDictionaryPathCommand(String path, List<String> commands) {
+    void setCustomDictionaryPathCommand(String path, List<String> commands) {
         if (path != null && !path.isEmpty()) {
             commands.add("--fixlist");
             commands.add(path);
         }
     }
 
-    private void setOutputFormatCommand(Options.OutputFormatType outputFormat, List<String> commands) {
+    void setOutputFormatCommand(Options.OutputFormatType outputFormat, List<String> commands) {
         if (outputFormat != null) {
             commands.add("--format");
             switch (outputFormat) {

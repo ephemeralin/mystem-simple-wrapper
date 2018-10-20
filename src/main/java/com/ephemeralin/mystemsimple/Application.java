@@ -31,10 +31,8 @@ public class Application {
                 .setPrintEndMarker(false)
                 .setEncoding(Options.EncodingType.UTF8)
                 .setContextualDisambiguation(false)
-                .setPrintEnglishGrammemes(false)
-                .setOutputFormat(Options.OutputFormatType.JSON);
+                .setPrintEnglishGrammemes(false);
         Stemmer stemmer = new Stemmer(options);
         List<Word> results = stemmer.stem("Глокая куздра штеко будланула бокра и курдячит бокрёнка.");
-        int aa = 1;
     }
 }

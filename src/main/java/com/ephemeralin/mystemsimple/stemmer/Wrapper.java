@@ -29,7 +29,7 @@ class Wrapper {
      * @param input    the input
      * @return the list
      */
-    public List<String> analyze(List<String> commands, String input) {
+    List<String> analyze(List<String> commands, String input) {
         List<String> result = new ArrayList<String>();
         try {
             Process process = Runtime.getRuntime().exec(commands.toArray(new String[commands.size()]));
