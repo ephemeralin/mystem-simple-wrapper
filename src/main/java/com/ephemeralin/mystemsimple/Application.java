@@ -33,6 +33,8 @@ public class Application {
                 .setContextualDisambiguation(false)
                 .setPrintEnglishGrammemes(false);
         Stemmer stemmer = new Stemmer(options);
-        List<Word> results = stemmer.stem("Глокая куздра штеко будланула бокра и курдячит бокрёнка.");
+        List<Word> results = stemmer.stem(
+                "Глокая куздра штеко будланула бокра и курдячит бокрёнка.");
+        System.out.println(results.toString());
     }
 }
