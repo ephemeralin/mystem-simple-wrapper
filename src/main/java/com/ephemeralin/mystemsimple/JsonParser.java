@@ -1,8 +1,11 @@
 package com.ephemeralin.mystemsimple;
 
 import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * The type Json parser.
@@ -10,13 +13,15 @@ import java.lang.reflect.Type;
 public class JsonParser {
 
     private Gson gson;
+//    private Map<String, GramType> gramTypes;
 
     private JsonParser() {
         GsonBuilder builder = new GsonBuilder();
-
         builder.registerTypeAdapter(Word.LexemeType.class, new LexemeTypeDeserializer());
+        builder.registerTypeAdapter(new TypeToken<Set<GramType>>() {
+                                        }.getType(),
+                                            new GrammemeTypesListDeserializer());
         gson = builder.create();
-
     }
 
     /**
@@ -45,27 +50,32 @@ public class JsonParser {
      * @return the word
      */
     public Word parse(String json) {
-        return gson.fromJson(json, Word.class);
+        try {
+            return gson.fromJson(json, Word.class);
+        } catch (JsonSyntaxException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**
      * The Lexeme type deserializer.
      */
-    public static class LexemeTypeDeserializer implements JsonDeserializer<Word.LexemeType> {
-
+    private class LexemeTypeDeserializer implements JsonDeserializer<Word.LexemeType> {
         /**
          * Deserialize rules for Word.LexemeType.
-         * @param jsonElement Element
-         * @param type type
-         * @param jsonDeserializationContext context
+         *
+         * @param json    Element
+         * @param type    type
+         * @param context context
          * @return deserealized object
          * @throws JsonParseException ex
          */
-        public Word.LexemeType deserialize(JsonElement jsonElement, Type type,
-                                           JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
+        public Word.LexemeType deserialize(JsonElement json, Type type,
+                                           JsonDeserializationContext context) throws JsonParseException {
             Word.LexemeType[] lexemeTypes = Word.LexemeType.values();
             for (Word.LexemeType lexemeType : lexemeTypes) {
-                if (lexemeType.getType().equals(jsonElement.getAsString())) {
+                if (lexemeType.getType().equals(json.getAsString())) {
                     return lexemeType;
                 }
             }
@@ -73,4 +83,29 @@ public class JsonParser {
         }
     }
 
+    /**
+     * The type Grammeme types list deserializer.
+     */
+    private class GrammemeTypesListDeserializer implements JsonDeserializer<Set<GramType>> {
+        /**
+         * Deserialize rules for Word.LexemeType.
+         *
+         * @param json    Element
+         * @param type    type
+         * @param context context
+         * @return deserealized object
+         * @throws JsonParseException ex
+         */
+        public Set<GramType> deserialize(JsonElement json, Type type,
+                                         JsonDeserializationContext context) throws JsonParseException {
+            HashSet<GramType> types = new HashSet<>();
+            for (String t : json.getAsString().split("[,=]")) {
+                GramType gramType = GramType.COLLECTED.get(t);
+                if (gramType != null) {
+                    types.add(gramType);
+                }
+            }
+            return types;
+        }
+    }
 }

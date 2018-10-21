@@ -75,7 +75,8 @@
         </module>
         <module name="JavadocType"/>
         <module name="JavadocVariable">
-            <property name="scope" value="package"/>
+            <property name="excludeScope" value="private"/>
+            <property name="tokens" value="VARIABLE_DEF"/>
         </module>
         <module name="JavadocStyle"/>
 
@@ -140,7 +141,7 @@
         <!--<module name="HiddenField"/>-->
         <module name="IllegalInstantiation"/>
         <!--<module name="InnerAssignment"/>-->
-        <!--<module name="MagicNumber"/>-->
+        <module name="MagicNumber"/>
         <module name="MissingSwitchDefault"/>
         <module name="SimplifyBooleanExpression"/>
         <module name="SimplifyBooleanReturn"/>
@@ -151,7 +152,9 @@
         <!--<module name="FinalClass"/>-->
         <!--<module name="HideUtilityClassConstructor"/>-->
         <module name="InterfaceIsType"/>
-        <module name="VisibilityModifier"/>
+        <module name="VisibilityModifier">
+            <!--<property name="allowPublicFinalFields" value="true"/>-->
+        </module>
 
         <!-- Miscellaneous other checks.                   -->
         <!-- See http://checkstyle.sf.net/config_misc.html -->

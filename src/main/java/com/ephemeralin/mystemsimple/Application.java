@@ -15,7 +15,6 @@ public class Application {
      * @param args the input arguments
      */
     public static void main(String[] args) {
-        //todo: setPrintGramInfo, setPrintEnglishGrammemes - add grammatical analysis
         //todo: setContextualDisambiguation - it seems that doesn't work
         //todo: setFilterGrammemes - check correct behavior
         Options options = new Options();
@@ -30,8 +29,7 @@ public class Application {
                 .setGlueGramInfoIfOneLemm(false)
                 .setPrintEndMarker(false)
                 .setEncoding(Options.EncodingType.UTF8)
-                .setContextualDisambiguation(false)
-                .setPrintEnglishGrammemes(false);
+                .setContextualDisambiguation(false);
         Stemmer stemmer = new Stemmer(options);
         List<Word> results = stemmer.stem(
                 "Глокая куздра штеко будланула бокра и курдячит бокрёнка.");

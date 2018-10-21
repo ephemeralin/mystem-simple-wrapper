@@ -22,13 +22,15 @@ public class Word implements Serializable {
      * The Lexeme.
      */
     @Data
-    private static class Lexeme {
+    private static class Lexeme implements Serializable {
         @SerializedName("lex")
         private String value;
         @SerializedName("wt")
         private double weight;
         @SerializedName("qual")
         private LexemeType type;
+        @SerializedName("gr")
+        private Set<GramType> grammemes = new HashSet<GramType>();
     }
 
     /**

@@ -31,7 +31,6 @@ public class WrapperInitializerTest {
                 .setPrintEndMarker(true)
                 .setEncoding(Options.EncodingType.UTF8)
                 .setContextualDisambiguation(true)
-                .setPrintEnglishGrammemes(true)
                 .setOutputFormat(Options.OutputFormatType.JSON)
                 .setPrintWeight(true)
                 .setPrintAllSuggestions(true);
@@ -61,7 +60,7 @@ public class WrapperInitializerTest {
             log.error("Error when testing initCommands (FAILED)", e);
         }
         String expectedCommands =
-                "[/Applications/mystem, -n, --format, json]";
+                "[/Applications/mystem, -n, --eng-gr, --format, json]";
         assertThat(commands.toString(), is(expectedCommands));
     }
 
@@ -92,7 +91,6 @@ public class WrapperInitializerTest {
                 .setGlueGramInfoIfOneLemm(true)
                 .setPrintEndMarker(true)
                 .setContextualDisambiguation(true)
-                .setPrintEnglishGrammemes(true)
                 .setPrintWithoutOriginalWordForms(true)
                 .setPrintAllSuggestions(true)
                 .setPrintWeight(true);

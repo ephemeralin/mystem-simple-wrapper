@@ -43,6 +43,7 @@ public class Options {
      */
     public Options() {
         this.rowMode = true;
+        this.printEnglishGrammemes = true;
     }
 
     /**
@@ -131,17 +132,6 @@ public class Options {
      */
     public Options setContextualDisambiguation(boolean contextualDisambiguation) {
         this.contextualDisambiguation = contextualDisambiguation;
-        return this;
-    }
-
-    /**
-     * Sets print english grammemes.
-     *
-     * @param printEnglishGrammemes the print english grammemes
-     * @return the print english grammemes
-     */
-    public Options setPrintEnglishGrammemes(boolean printEnglishGrammemes) {
-        this.printEnglishGrammemes = printEnglishGrammemes;
         return this;
     }
 
